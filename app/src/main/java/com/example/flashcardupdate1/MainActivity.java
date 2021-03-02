@@ -1,5 +1,6 @@
 package com.example.flashcardupdate1;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -31,17 +32,33 @@ public class MainActivity extends AppCompatActivity {
             public void onClick (View v){
                 Intent intentAddBt = new Intent(MainActivity.this, AddCardActivity.class);
                 MainActivity.this.startActivityForResult(intentAddBt, 1);
-
-
             }
         });
 
+    }
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            TextView flashcardQuestion = findViewById(R.id.question);
+            TextView flashcardAnswer = findViewById(R.id.answer);
 
+            String string1 = data.getExtras().getString("q");
+            flashcardQuestion.setText(string1);
+            String string2 = data.getExtras().getString("a");
+            flashcardAnswer.setText(string2);
 
+            flashcardQuestion.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    flashcardQuestion.setVisibility(View.INVISIBLE);
+                    flashcardAnswer.setVisibility(View.VISIBLE);
+                }
+            });
 
-
+        }
 
     }
 }
