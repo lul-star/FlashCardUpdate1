@@ -3,7 +3,7 @@
 ## Lab 2
 
 ### App Description
-`TODO://` Add app description
+The app lets the user enter their own question and answer then save it on button click. It displays the question. Upon click of the question it shows the answer.
 
 ### App Walk-though
 <img src="https://github.com/lul-star/FlashCardUpdate1/blob/master/Lab2Week4-walkthrough.gif" width=200><br>
